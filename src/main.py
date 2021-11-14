@@ -4,6 +4,7 @@ from kivy.properties import ObjectProperty
 from kivy.lang import Builder
 from kivy.uix.tabbedpanel import TabbedPanel
 from kivy.core.window import Window
+from kivy.uix.textinput import TextInput
 
 
 Window.clearcolor = (.21,.21,.21,1) #Button header color

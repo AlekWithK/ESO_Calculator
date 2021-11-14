@@ -1,27 +1,34 @@
 <TabbedPanelHeader>
-    background_color: [.1,1,.8,1] #Button color
-    
-<TabbedPanel>
-    do_default_tab: False
-    tab_width: self.size[0] / 3
-    tab_pos: 'top_mid'
+	background_color: [.1,1,.8,1] #Button color
+<TabbedPanel>   
+	do_default_tab: False
+	tab_width: self.size[0] / 3
+	tab_pos: 'top_mid'
+	
+	TabbedPanelItem: #Parse Normalizer
+		text: "Parse Normalizer"
+		font_name: 'Impact'
+		font_size: 17
+		FloatLayout:
+			Label:
+				text: "Normalized DPS: "
+				font_name: "Arialbd"
+				font_size: 22
+			Button:
+				size_hint: [1, 0.17]
+				#pos_hint: {"right": 1.0,"top": 0.15}
+				text: "Calculate"
+				font_name: "Impact"
+				font_size: 26
+				background_color: [.1,1,.8,1]
 
-    TabbedPanelItem: 
-        text: "Parse Normalizer"
-        font_name: 'Impact'
-        font_size: 17
 
-        BoxLayout:
-            Label: 
-                text: "tab 1"
-                font_name: 'Arial'
+	TabbedPanelItem: #Crit Calculator
+		text: "Crit Calculator"
+		font_name: 'Impact'
+		font_size: 17
 
-    TabbedPanelItem:
-        text: "Crit Calculator"
-        font_name: 'Impact'
-        font_size: 17
-
-    TabbedPanelItem:
-        text: "Kilt Cheatsheet"
-        font_name: 'Impact'
-        font_size: 17
+	TabbedPanelItem: #Kilt Sheet
+		text: "Kilt Cheatsheet"
+		font_name: 'Impact'
+		font_size: 17
