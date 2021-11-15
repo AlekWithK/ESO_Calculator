@@ -8,27 +8,105 @@
 	TabbedPanelItem: #Parse Normalizer
 		text: "Parse Normalizer"
 		font_name: 'Impact'
-		font_size: 17
-		FloatLayout:
+		font_size: 19
+		GridLayout:
+			cols: 1
+			padding: [150, 15]			
+			TextInput:
+				id: t_dps
+				multiline: False		
+				hint_text: "Total DPS"
+				halign: 'center'
+				font_size: 20			
+
+				size_hint_x: None
+				size_hint_y: None
+				width: 200
+				height: 40
+			TextInput:
+				id: c_chance
+				multiline: False				
+				hint_text: "Crit Chance"
+				halign: 'center'
+				font_size: 20
+
+				size_hint_x: None
+				size_hint_y: None
+				width: 200
+				height: 40
+			TextInput:
+				id: t_hits
+				multiline: False		
+				hint_text: "Total Hits"
+				halign: 'center'
+				font_size: 20			
+
+				size_hint_x: None
+				size_hint_y: None
+				width: 200
+				height: 40
+			TextInput:
+				id: t_c_hits
+				multiline: False				
+				hint_text: "Total Critical Hits"
+				halign: 'center'
+				font_size: 20
+
+				size_hint_x: None
+				size_hint_y: None
+				width: 200
+				height: 40
+			TextInput:
+				id: t_non_hits
+				multiline: False		
+				hint_text: "Total Non-Hits"
+				halign: 'center'
+				font_size: 20			
+
+				size_hint_x: None
+				size_hint_y: None
+				width: 200
+				height: 40
+			TextInput:
+				id: c_damage
+				multiline: False				
+				hint_text: "Critical Damage"
+				halign: 'center'
+				font_size: 20
+
+				size_hint_x: None
+				size_hint_y: None
+				width: 200
+				height: 40
+
 			Label:
-				text: "Normalized DPS: "
-				font_name: "Arialbd"
-				font_size: 22
+				id: result_lbl
+				padding: [0, 20]
+				text: "Result: "
+				font_size: 24
+				#font_name: "CORBELB"
+
 			Button:
-				size_hint: [1, 0.17]
-				#pos_hint: {"right": 1.0,"top": 0.15}
+				padding: [20, 20]
 				text: "Calculate"
 				font_name: "Impact"
 				font_size: 26
 				background_color: [.1,1,.8,1]
 
+				size_hint_x: None
+				size_hint_y: None
+				width: 200
+				height: 50
+
+				on_release: root.button_pressed()
+
 
 	TabbedPanelItem: #Crit Calculator
 		text: "Crit Calculator"
 		font_name: 'Impact'
-		font_size: 17
+		font_size: 19
 
 	TabbedPanelItem: #Kilt Sheet
 		text: "Kilt Cheatsheet"
 		font_name: 'Impact'
-		font_size: 17
+		font_size: 19
