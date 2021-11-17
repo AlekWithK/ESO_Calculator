@@ -10,17 +10,16 @@ from kivy.core.window import Window
 from kivy.uix.textinput import TextInput
 from kivy.clock import Clock
 
-from funcs import normalizer
+from funcs import normalizer, crit_calc
 
 Window.size = (500, 500)
 Window.clearcolor = (.21,.21,.21,0) #Button header color
 Builder.load_file('ui.kv')
-
 class Frame(TabbedPanel):
     def __init__(self, **kwargs):
         super(Frame, self).__init__(**kwargs)
     
-    def button_pressed(self):
+    def normalizer_pressed(self):
         try:
             t_dps = int(self.ids.t_dps.text)
             c_chance = float(self.ids.c_chance.text)
@@ -32,13 +31,17 @@ class Frame(TabbedPanel):
             result, delta = normalizer(t_dps, c_chance, t_hits, t_c_hits, t_non_hits, c_damage)
             self.ids.result_lbl.text = f"""Result: {result}\nChange: {delta}"""
         except:
-            self.ids.result_lbl.text = f'Please check \n your inputs!'      
+            self.ids.result_lbl.text = f'Please check \n your inputs!'  
+            
+    def checkbox_click(self, instance, val, src):
+        avg_crit = crit_calc(self, src, val)
+        self.ids.avg_crit.text = f'{avg_crit}%'
+        return    
 class ESOCalc(App):
     def build(self):
         self.title = 'ESO Calculators'
         self.icon = 'Resources/icon.png'
-        return Frame()   
-        
+        return Frame()       
 
 if __name__ == "__main__":
     ESOCalc().run()
