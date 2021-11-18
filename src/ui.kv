@@ -25,6 +25,12 @@
 				id: t_dps
 				multiline: False
 				write_tab: False
+				background_color: [1, 1, 1, .15]
+				foreground_color: [1, 1, 1, 1]
+				disabled_foreground_color: [1, 1, 1, 1]
+				hint_text_color: [1, 1, 1, 1]
+				cursor_color: [.1,1,.8,.4]
+
 				input_filter: 'int'		
 				hint_text: "Total DPS"
 				tooltip_text: "Your total DPS"
@@ -39,6 +45,12 @@
 				id: c_chance
 				multiline: False
 				write_tab: False
+				background_color: [1, 1, 1, .15]
+				foreground_color: [1, 1, 1, 1]
+				disabled_foreground_color: [1, 1, 1, 1]
+				hint_text_color: [1, 1, 1, 1]
+				cursor_color: [.1,1,.8,.4]
+
 				input_filter: 'float'				
 				hint_text: "Crit Chance"
 				halign: 'center'
@@ -52,6 +64,12 @@
 				id: t_hits
 				multiline: False
 				write_tab: False
+				background_color: [1, 1, 1, .15]
+				foreground_color: [1, 1, 1, 1]
+				disabled_foreground_color: [1, 1, 1, 1]
+				hint_text_color: [1, 1, 1, 1]
+				cursor_color: [.1,1,.8,.4]
+
 				input_filter: 'int'		
 				hint_text: "Total Hits"
 				halign: 'center'
@@ -65,6 +83,12 @@
 				id: t_c_hits
 				multiline: False
 				write_tab: False
+				background_color: [1, 1, 1, .15]
+				foreground_color: [1, 1, 1, 1]
+				disabled_foreground_color: [1, 1, 1, 1]
+				hint_text_color: [1, 1, 1, 1]
+				cursor_color: [.1,1,.8,.4]
+
 				input_filter: 'int'				
 				hint_text: "Total Critical Hits"
 				halign: 'center'
@@ -78,6 +102,12 @@
 				id: t_non_hits
 				multiline: False
 				write_tab: False
+				background_color: [1, 1, 1, .15]
+				foreground_color: [1, 1, 1, 1]
+				disabled_foreground_color: [1, 1, 1, 1]
+				hint_text_color: [1, 1, 1, 1]
+				cursor_color: [.1,1,.8,.4]
+
 				input_filter: 'int'		
 				hint_text: "Total Non-Hits"
 				halign: 'center'
@@ -91,6 +121,12 @@
 				id: c_damage
 				multiline: False
 				write_tab: False
+				background_color: [1, 1, 1, .15]
+				foreground_color: [1, 1, 1, 1]
+				disabled_foreground_color: [1, 1, 1, 1]
+				hint_text_color: [1, 1, 1, 1]
+				cursor_color: [.1,1,.8,.4]
+				
 				input_filter: 'float'				
 				hint_text: "Critical Damage"
 				halign: 'center'
@@ -151,13 +187,13 @@
 			#The "spreadsheet"
 			GridLayout:
 				cols: 4
-				padding: [0, 20]
+				padding: [5, 20]
 				spacing: [20, 0]
 				Label:
 					text: "BUFF"
 					font_name: "IMPACT"
 					font_size: 22
-					underline: True
+					color: [.1,1,.8,.50]
 
 					size_hint_x: None
 					width: 185
@@ -165,7 +201,7 @@
 					text: "BONUS"
 					font_name: "IMPACT"
 					font_size: 22
-					underline: True
+					color: [.1,1,.8,.50]
 
 					size_hint_x: None
 					width: 85
@@ -173,7 +209,7 @@
 					text: "SELECT"
 					font_name: "IMPACT"
 					font_size: 22
-					underline: True
+					color: [.1,1,.8,.50]
 
 					size_hint_x: None
 					width: 85
@@ -181,15 +217,15 @@
 					text: "UPTIME"
 					font_name: "IMPACT"
 					font_size: 22
-					underline: True
+					color: [.1,1,.8,.50]
 
 					size_hint_x: None
-					width: 75
+					width: 65
 
 				#-----ROW 1-----
 				Label:
 					text: "Major Force:"
-					font_name: "DUBAI-BOLD"
+					font_name: "VERDANA"
 					font_size: 20
 
 					size_hint_x: None
@@ -213,6 +249,12 @@
 					disabled: maj_force_chk.active
 					multiline: False
 					write_tab: False
+					background_color: [1, 1, 1, .15]
+					foreground_color: [1, 1, 1, 1]
+					disabled_foreground_color: [1, 1, 1, 1]
+					hint_text_color: [1, 1, 1, 1]
+					cursor_color: [.1,1,.8,.4]
+					font_name: "DUBAI-REGULAR"
 
 					input_filter: 'float'
 					hint_text: '.75'
@@ -220,13 +262,13 @@
 					padding_y: [self.height / 2.0 - (self.line_height / 2.0) * len(self._lines), 0]
 
 					size_hint_x: None
-					width: 75
+					width: 65
 					padding: [20, 0]
 
 				#-----ROW 2-----
 				Label:
 					text: "Minor Force:"
-					font_name: "DUBAI-BOLD"
+					font_name: "VERDANA"
 					font_size: 20
 
 					size_hint_x: None
@@ -250,6 +292,12 @@
 					disabled: min_force_chk.active
 					multiline: False
 					write_tab: False
+					background_color: [1, 1, 1, .15]
+					foreground_color: [1, 1, 1, 1]
+					disabled_foreground_color: [1, 1, 1, 1]
+					hint_text_color: [1, 1, 1, 1]
+					cursor_color: [.1,1,.8,.4]
+					font_name: "DUBAI-REGULAR"
 
 					input_filter: 'float'
 					hint_text: '.90'
@@ -257,12 +305,12 @@
 					padding_y: [self.height / 2.0 - (self.line_height / 2.0) * len(self._lines), 0]
 
 					size_hint_x: None
-					width: 75
+					width: 65
 
 				#-----ROW 3-----
 				Label:
 					text: "Fighting Finesse:"
-					font_name: "DUBAI-BOLD"
+					font_name: "VERDANA"
 					font_size: 20
 
 					size_hint_x: None
@@ -284,16 +332,16 @@
 				Label:
 					id: fight_f
 					text: "1"
-					font_name: "DUBAI-BOLD"
-					font_size: 18
+					font_name: "DUBAI-REGULAR"
+					font_size: 16
 
 					size_hint_x: None
-					width: 75
+					width: 65
 
 				#-----ROW 4-----
 				Label:
 					text: "Backstabber:"
-					font_name: "DUBAI-BOLD"
+					font_name: "VERDANA"
 					font_size: 20
 
 					size_hint_x: None
@@ -315,16 +363,16 @@
 				Label:
 					id: backstab
 					text: "1"
-					font_name: "DUBAI-BOLD"
-					font_size: 18
+					font_name: "DUBAI-REGULAR"
+					font_size: 16
 
 					size_hint_x: None
-					width: 75
+					width: 65
 
 				#-----ROW 5-----
 				Label:
 					text: "Templar/Blade:"
-					font_name: "DUBAI-BOLD"
+					font_name: "VERDANA"
 					font_size: 20
 
 					size_hint_x: None
@@ -346,16 +394,16 @@
 				Label:
 					id: temp_night
 					text: "1"
-					font_name: "DUBAI-BOLD"
-					font_size: 18
+					font_name: "DUBAI-REGULAR"
+					font_size: 16
 
 					size_hint_x: None
-					width: 75
+					width: 65
 
 				#-----ROW 6-----
 				Label:
 					text: "Khajit:"
-					font_name: "DUBAI-BOLD"
+					font_name: "VERDANA"
 					font_size: 20
 
 					size_hint_x: None
@@ -377,16 +425,16 @@
 				Label:
 					id: khajit
 					text: "1"
-					font_name: "DUBAI-BOLD"
-					font_size: 18
+					font_name: "DUBAI-REGULAR"
+					font_size: 16
 
 					size_hint_x: None
-					width: 75
+					width: 65
 
 				#-----ROW 7-----
 				Label:
 					text: "Glacial Presence:"
-					font_name: "DUBAI-BOLD"
+					font_name: "VERDANA"
 					font_size: 20
 
 					size_hint_x: None
@@ -410,6 +458,12 @@
 					disabled: glacial_chk.active
 					multiline: False
 					write_tab: False
+					background_color: [1, 1, 1, .15]
+					foreground_color: [1, 1, 1, 1]
+					disabled_foreground_color: [1, 1, 1, 1]
+					hint_text_color: [1, 1, 1, 1]
+					cursor_color: [.1,1,.8,.4]
+					font_name: "DUBAI-REGULAR"
 
 					input_filter: 'float'
 					hint_text: '.75'
@@ -417,12 +471,12 @@
 					padding_y: [self.height / 2.0 - (self.line_height / 2.0) * len(self._lines), 0]
 
 					size_hint_x: None
-					width: 75
+					width: 65
 
 				#-----ROW 8-----
 				Label:
 					text: "Medium Armor:"
-					font_name: "DUBAI-BOLD"
+					font_name: "VERDANA"
 					font_size: 20
 
 					size_hint_x: None
@@ -446,6 +500,12 @@
 					disabled: med_armor_chk.active
 					multiline: False
 					write_tab: False
+					background_color: [1, 1, 1, .15]
+					foreground_color: [1, 1, 1, 1]
+					disabled_foreground_color: [1, 1, 1, 1]
+					hint_text_color: [1, 1, 1, 1]
+					cursor_color: [.1,1,.8,.4]
+					font_name: "DUBAI-REGULAR"
 
 					input_filter: 'int'
 					hint_text: '1'
@@ -453,12 +513,12 @@
 					padding_y: [self.height / 2.0 - (self.line_height / 2.0) * len(self._lines), 0]
 
 					size_hint_x: None
-					width: 75
+					width: 65
 
 				#-----ROW 9-----
 				Label:
 					text: "Shadow Mundus:"
-					font_name: "DUBAI-BOLD"
+					font_name: "VERDANA"
 					font_size: 20
 
 					size_hint_x: None
@@ -482,6 +542,12 @@
 					disabled: shadow_chk.active
 					multiline: False
 					write_tab: False
+					background_color: [1, 1, 1, .15]
+					foreground_color: [1, 1, 1, 1]
+					disabled_foreground_color: [1, 1, 1, 1]
+					hint_text_color: [1, 1, 1, 1]
+					cursor_color: [.1,1,.8,.4]
+					font_name: "DUBAI-REGULAR"
 
 					input_filter: 'int'
 					hint_text: '7'
@@ -489,12 +555,12 @@
 					padding_y: [self.height / 2.0 - (self.line_height / 2.0) * len(self._lines), 0]
 
 					size_hint_x: None
-					width: 75
+					width: 65
 
 				#-----ROW 10-----
 				Label:
 					text: "Two-Handed Axe:"
-					font_name: "DUBAI-BOLD"
+					font_name: "VERDANA"
 					font_size: 20
 
 					size_hint_x: None
@@ -518,6 +584,12 @@
 					disabled: twoHaxe_chk.active
 					multiline: False
 					write_tab: False
+					background_color: [1, 1, 1, .15]
+					foreground_color: [1, 1, 1, 1]
+					disabled_foreground_color: [1, 1, 1, 1]
+					hint_text_color: [1, 1, 1, 1]
+					cursor_color: [.1,1,.8,.4]
+					font_name: "DUBAI-REGULAR"
 
 					input_filter: 'float'
 					hint_text: '.65'
@@ -525,12 +597,12 @@
 					padding_y: [self.height / 2.0 - (self.line_height / 2.0) * len(self._lines), 0]
 
 					size_hint_x: None
-					width: 75
+					width: 65
 
 				#-----ROW 11-----
 				Label:
 					text: "Dual Wield Axe:"
-					font_name: "DUBAI-BOLD"
+					font_name: "VERDANA"
 					font_size: 20
 
 					size_hint_x: None
@@ -554,6 +626,12 @@
 					disabled: twinblade_chk.active
 					multiline: False
 					write_tab: False
+					background_color: [1, 1, 1, .15]
+					foreground_color: [1, 1, 1, 1]
+					disabled_foreground_color: [1, 1, 1, 1]
+					hint_text_color: [1, 1, 1, 1]
+					cursor_color: [.1,1,.8,.4]
+					font_name: "DUBAI-REGULAR"
 
 					input_filter: 'float'
 					hint_text: '.65'
@@ -561,12 +639,12 @@
 					padding_y: [self.height / 2.0 - (self.line_height / 2.0) * len(self._lines), 0]
 
 					size_hint_x: None
-					width: 75
+					width: 65
 
 				#-----ROW 12-----
 				Label:
 					text: "Harpooner's Kilt:"
-					font_name: "DUBAI-BOLD"
+					font_name: "VERDANA"
 					font_size: 20
 
 					size_hint_x: None
@@ -590,6 +668,12 @@
 					disabled: kilt_chk.active
 					multiline: False
 					write_tab: False
+					background_color: [1, 1, 1, .15]
+					foreground_color: [1, 1, 1, 1]
+					disabled_foreground_color: [1, 1, 1, 1]
+					hint_text_color: [1, 1, 1, 1]
+					cursor_color: [.1,1,.8,.4]
+					font_name: "DUBAI-REGULAR"
 
 					input_filter: 'int'
 					hint_text: '8'
@@ -597,13 +681,13 @@
 					padding_y: [self.height / 2.0 - (self.line_height / 2.0) * len(self._lines), 0]
 
 					size_hint_x: None
-					width: 75
+					width: 65
 
 				#-----ROW 13-----
 				Label:
 					text: "Sul-Xan's Torment:"
-					font_name: "DUBAI-BOLD"
-					font_size: 20
+					font_name: "VERDANA"
+					font_size: 18
 
 					size_hint_x: None
 					width: 185
@@ -626,6 +710,12 @@
 					disabled: sulxan_chk.active
 					multiline: False
 					write_tab: False
+					background_color: [1, 1, 1, .15]
+					foreground_color: [1, 1, 1, 1]
+					disabled_foreground_color: [1, 1, 1, 1]
+					hint_text_color: [1, 1, 1, 1]
+					cursor_color: [.1,1,.8,.4]
+					font_name: "DUBAI-REGULAR"
 
 					input_filter: 'float'
 					hint_text: '1'
@@ -633,12 +723,12 @@
 					padding_y: [self.height / 2.0 - (self.line_height / 2.0) * len(self._lines), 0]
 
 					size_hint_x: None
-					width: 75
+					width: 65
 
 				#-----ROW 14-----
 				Label:
 					text: "Malacath's Band:"
-					font_name: "DUBAI-BOLD"
+					font_name: "VERDANA"
 					font_size: 20
 
 					size_hint_x: None
@@ -660,16 +750,16 @@
 				Label:
 					id: malacath
 					text: "1"
-					font_name: "DUBAI-BOLD"
-					font_size: 18
+					font_name: "DUBAI-REGULAR"
+					font_size: 16
 
 					size_hint_x: None
-					width: 75
+					width: 65
 
 				#-----ROW 15-----
 				Label:
 					text: "Minor Brittle:"
-					font_name: "DUBAI-BOLD"
+					font_name: "VERDANA"
 					font_size: 20
 
 					size_hint_x: None
@@ -693,6 +783,12 @@
 					disabled: brittle_chk.active
 					multiline: False
 					write_tab: False
+					background_color: [1, 1, 1, .15]
+					foreground_color: [1, 1, 1, 1]
+					disabled_foreground_color: [1, 1, 1, 1]
+					hint_text_color: [1, 1, 1, 1]
+					cursor_color: [.1,1,.8,.4]
+					font_name: "DUBAI-REGULAR"
 
 					input_filter: 'float'
 					hint_text: '.60'
@@ -700,13 +796,13 @@
 					padding_y: [self.height / 2.0 - (self.line_height / 2.0) * len(self._lines), 0]
 
 					size_hint_x: None
-					width: 75
+					width: 65
 
 				#-----ROW 16-----
 				Label:
 					text: "Elemental Catalyst:"
-					font_name: "DUBAI-BOLD"
-					font_size: 20
+					font_name: "VERDANA"
+					font_size: 18
 
 					size_hint_x: None
 					width: 185
@@ -729,6 +825,12 @@
 					disabled: catalyst_chk.active
 					multiline: False
 					write_tab: False
+					background_color: [1, 1, 1, .15]
+					foreground_color: [1, 1, 1, 1]
+					disabled_foreground_color: [1, 1, 1, 1]
+					hint_text_color: [1, 1, 1, 1]
+					cursor_color: [.1,1,.8,.4]
+					font_name: "DUBAI-REGULAR"
 
 					input_filter: 'float'
 					hint_text: '.83'
@@ -736,7 +838,7 @@
 					padding_y: [self.height / 2.0 - (self.line_height / 2.0) * len(self._lines), 0]
 
 					size_hint_x: None
-					width: 75
+					width: 65
 
 			#Result Row
 			Label:

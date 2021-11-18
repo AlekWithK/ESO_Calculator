@@ -37,8 +37,8 @@ class Frame(TabbedPanel):
     #src = textinput ID | src2 = label ID
     color = ListProperty([.1,1,.8,.20])        
     def checkbox_click(self, instance, val, src, src2):
-        avg_crit = round(calc_avg_crit(self, src, src2, val), 2)
-        max_crit = round(calc_max_crit(self, src, val), 2)
+        avg_crit = int(calc_avg_crit(self, src, src2, val))
+        max_crit = int(round(calc_max_crit(self, src, val)))
         
         #Color changing
         if (avg_crit > 115 and avg_crit < 125):
