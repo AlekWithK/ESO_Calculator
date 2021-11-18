@@ -1,5 +1,6 @@
 <TabbedPanelHeader>
 	background_color: [.1,1,.8,1] #Button color	
+
 <TabbedPanel>
 	do_default_tab: False
 	tab_width: (self.width - 6) / 3
@@ -103,7 +104,7 @@
 			Label:
 				canvas.before:
 					Color:
-						rgba:[.1,1,.8,.05]
+						rgba:[.1,1,.8,.10]
 					Rectangle:
 						size: self.size
 						pos: self.pos
@@ -748,7 +749,7 @@
 
 				canvas.before:
 					Color:
-						rgba:[.1,1,.8,.15]
+						rgba: root.color
 					Rectangle:
 						size: self.size
 						pos: self.pos			
@@ -757,3 +758,39 @@
 		text: "Kilt Cheatsheet"
 		font_name: 'Impact'
 		font_size: 19
+
+		GridLayout:
+			cols: 1
+			canvas.before:
+				Color:
+					rgba:[.21,.21,.21,1]
+				Rectangle:
+					size: self.size
+					pos: self.pos
+					source: 'Resources/gradient.jpg'
+
+			Spinner:
+				id: selection
+				background_color: [.1,1,.8,.75]
+
+				text: "Click To Select a Trial!"
+				font_size: 26
+
+				size_hint_y: None
+				height: 75
+
+				values: ["Aetherian Archives", "Asylum Sanctorum", "Cloudrest", "Halls of Fabrication", "Hel Ra Citadel", "Kynes Aegis", "Maw of Lorkhaj", "Rockgrove", "Sanctum Ophidia", "Sunspire"]
+				on_text: root.spinner_clicked(self, selection.text)
+
+			Label:
+				id: kilt_result
+				text: "Result"
+
+			Label:
+				id: kilt_notes
+				canvas.before:
+					Color:
+						rgba:[.1,1,.8,.20]
+					Rectangle:
+						size: self.size
+						pos: self.pos

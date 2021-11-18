@@ -128,3 +128,9 @@ def calc_max_crit(self, src, val):
                 max_crit -= buffs[src][0]
     
     return max_crit
+
+def kilt_update(self, src):
+    #Uniform strings
+    src = ''.join(src.split()).lower()
+    
+    return
