@@ -1,20 +1,21 @@
-#{buff: (bonus crit, default %uptime)}
+#{buff: (max bonus crit, default %uptime, key)}
 
 buffs = {
-    "base": (50, 1),
-    "maj_force": (20, .75),
-    "min_force": (10, .90),
-    "fight_f": (10, 1),
-    "backstab": (15, 1),
-    "temp_night": (10, 1),
-    "khajit": (12, 1),
-    "med_armor": (2, 1), 
-    "shadow": (11, 7), #special case 11 + (1 * second value)
-    "twoHaxe": (12, .80),
-    "twinblade": (6, .60), 
-    "kilt": (1, 8), #special case 
-    "sulxan": (12, 1),
-    "malacath": (-50, 1),
-    "brittle": (10, .40),
-    "catalyst": (15, .83)    
+    "base": (50, 1, "base"),
+    "maj_force": (20, .75, "maj_force"),
+    "min_force": (10, .90, "min_force"),
+    "fight_f": (10, 1, "fight_f"),
+    "backstab": (15, 1, "backstab"),
+    "temp_night": (10, 1, "temp_night"),
+    "khajit": (12, 1, "khajit"),
+    "glacial": (10, .75, "glacial"),
+    "med_armor": (2, 1, "med_armor"), 
+    "shadow": (11, 7, "shadow"), #special case 11 + (1 * second value)
+    "twoHaxe": (12, .65, "twoHaxe"),
+    "twinblade": (6, .65, "twinblade"), 
+    "kilt": (1, 8, "kilt"), #special case 
+    "sulxan": (12, 1, "sulxan"),
+    "malacath": (-50, 1, "malacath"),
+    "brittle": (10, .60, "brittle"),
+    "catalyst": (15, .83, "catalyst")    
 }
