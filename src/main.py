@@ -52,7 +52,7 @@ class Frame(TabbedPanel):
         self.ids.crit_result.text = f"Average Crit Damage: {avg_crit}%\nMaximum Crit Damage: {max_crit}%"
         
     def spinner_clicked(self, instance, src):
-        kilt_update(self, src)
+        kilt_update(self, src)        
         return    
 class ESOCalc(App):
     def build(self):

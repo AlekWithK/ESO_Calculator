@@ -1,5 +1,4 @@
 #{buff: (max bonus crit, default %uptime, key)}
-
 buffs = {
     "base": (50, 1, "base"),
     "maj_force": (20, .75, "maj_force"),
@@ -18,4 +17,18 @@ buffs = {
     "malacath": (-50, 1, "malacath"),
     "brittle": (10, .60, "brittle"),
     "catalyst": (15, .83, "catalyst")    
+}
+
+#Image map
+imgs = {
+    "aetherianarchives": ("Resources/test.png", "aetherianarchives"),
+    "asylumsanctorum": ("Resources/test.png", "asylumsanctorum"),
+    "cloudrest": ("Resources/test.png", "cloudrest"),
+    "hallsoffabrication": ("Resources/test.png", "hallsoffabrication"),
+    "helracitadel": ("Resources/test.png", "helracitadel"),
+    "kynesaegis": ("Resources/test.png", "kynesaegis"),
+    "mawoflorkhaj": ("Resources/test.png", "mawoflorkhaj"),
+    "rockgrove": ("Resources/test.png", "rockgrove"),
+    "sanctumophidia": ("Resources/test.png", "sanctumophidia"),
+    "sunspire": ("Resources/test.png", "sunspire")     
 }
