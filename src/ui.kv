@@ -214,7 +214,7 @@
 					size_hint_x: None
 					width: 85
 				Label:
-					text: "UPTIME"
+					text: "% UPTIME"
 					font_name: "IMPACT"
 					font_size: 22
 					color: [.1,1,.8,.50]
@@ -257,7 +257,7 @@
 					font_name: "DUBAI-REGULAR"
 
 					input_filter: 'float'
-					hint_text: '.75'
+					hint_text: '75'
 					halign: 'center'
 					padding_y: [self.height / 2.0 - (self.line_height / 2.0) * len(self._lines), 0]
 
@@ -300,7 +300,7 @@
 					font_name: "DUBAI-REGULAR"
 
 					input_filter: 'float'
-					hint_text: '.90'
+					hint_text: '90'
 					halign: 'center'
 					padding_y: [self.height / 2.0 - (self.line_height / 2.0) * len(self._lines), 0]
 
@@ -331,7 +331,7 @@
 					width: 85
 				Label:
 					id: fight_f
-					text: "1"
+					text: "100"
 					font_name: "DUBAI-REGULAR"
 					font_size: 16
 
@@ -362,7 +362,7 @@
 					width: 85
 				Label:
 					id: backstab
-					text: "1"
+					text: "100"
 					font_name: "DUBAI-REGULAR"
 					font_size: 16
 
@@ -393,7 +393,7 @@
 					width: 85
 				Label:
 					id: temp_night
-					text: "1"
+					text: "100"
 					font_name: "DUBAI-REGULAR"
 					font_size: 16
 
@@ -424,7 +424,7 @@
 					width: 85
 				Label:
 					id: khajit
-					text: "1"
+					text: "100"
 					font_name: "DUBAI-REGULAR"
 					font_size: 16
 
@@ -466,7 +466,7 @@
 					font_name: "DUBAI-REGULAR"
 
 					input_filter: 'float'
-					hint_text: '.75'
+					hint_text: '75'
 					halign: 'center'
 					padding_y: [self.height / 2.0 - (self.line_height / 2.0) * len(self._lines), 0]
 
@@ -508,7 +508,7 @@
 					font_name: "DUBAI-REGULAR"
 
 					input_filter: 'int'
-					hint_text: '1'
+					hint_text: '1 Piece'
 					halign: 'center'
 					padding_y: [self.height / 2.0 - (self.line_height / 2.0) * len(self._lines), 0]
 
@@ -550,7 +550,7 @@
 					font_name: "DUBAI-REGULAR"
 
 					input_filter: 'int'
-					hint_text: '7'
+					hint_text: '7 Divine'
 					halign: 'center'
 					padding_y: [self.height / 2.0 - (self.line_height / 2.0) * len(self._lines), 0]
 
@@ -592,7 +592,7 @@
 					font_name: "DUBAI-REGULAR"
 
 					input_filter: 'float'
-					hint_text: '.65'
+					hint_text: '65'
 					halign: 'center'
 					padding_y: [self.height / 2.0 - (self.line_height / 2.0) * len(self._lines), 0]
 
@@ -634,7 +634,7 @@
 					font_name: "DUBAI-REGULAR"
 
 					input_filter: 'float'
-					hint_text: '.65'
+					hint_text: '65'
 					halign: 'center'
 					padding_y: [self.height / 2.0 - (self.line_height / 2.0) * len(self._lines), 0]
 
@@ -676,7 +676,7 @@
 					font_name: "DUBAI-REGULAR"
 
 					input_filter: 'int'
-					hint_text: '8'
+					hint_text: '8 Stacks'
 					halign: 'center'
 					padding_y: [self.height / 2.0 - (self.line_height / 2.0) * len(self._lines), 0]
 
@@ -718,7 +718,7 @@
 					font_name: "DUBAI-REGULAR"
 
 					input_filter: 'float'
-					hint_text: '1'
+					hint_text: '100'
 					halign: 'center'
 					padding_y: [self.height / 2.0 - (self.line_height / 2.0) * len(self._lines), 0]
 
@@ -749,7 +749,7 @@
 					width: 85
 				Label:
 					id: malacath
-					text: "1"
+					text: "100"
 					font_name: "DUBAI-REGULAR"
 					font_size: 16
 
@@ -791,7 +791,7 @@
 					font_name: "DUBAI-REGULAR"
 
 					input_filter: 'float'
-					hint_text: '.60'
+					hint_text: '60'
 					halign: 'center'
 					padding_y: [self.height / 2.0 - (self.line_height / 2.0) * len(self._lines), 0]
 
@@ -833,7 +833,7 @@
 					font_name: "DUBAI-REGULAR"
 
 					input_filter: 'float'
-					hint_text: '.83'
+					hint_text: '83'
 					halign: 'center'
 					padding_y: [self.height / 2.0 - (self.line_height / 2.0) * len(self._lines), 0]
 
@@ -856,7 +856,7 @@
 						size: self.size
 						pos: self.pos			
 
-	TabbedPanelItem: #Kilt Sheet
+	TabbedPanelItem: #Kilt Sheet	
 		text: "Kilt Cheatsheet"
 		font_name: 'Impact'
 		font_size: 19
@@ -891,3 +891,19 @@
 				color: [0, 0, 0, 0]
 				source: ""
 				size: self.texture_size
+
+	TabbedPanelItem:
+		text: "How To Use"
+		font_name: 'Impact'
+		font_size: 19
+
+		GridLayout:
+			cols: 1
+			padding: [2, 2]
+			canvas.before:
+				Color:
+					rgba:[.21,.21,.21,1]
+				Rectangle:
+					size: self.size
+					pos: self.pos
+					source: 'Resources/gradient.jpg'

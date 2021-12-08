@@ -43,10 +43,17 @@ def calc_avg_crit(self, src, src2, val):
                     bonus_crit = str(round((buffs[src][0] * buffs[src][1]), 2))
                     self.ids[str(src2)].text = f'{bonus_crit}%'
                     
+            #If custom value      
             else:
-                avg_crit += (buffs[src][0] * (float(self.ids[str(src)].text)))
-                bonus_crit = str(round(buffs[src][0] * (float(self.ids[str(src)].text)), 2))
-                self.ids[str(src2)].text = f'{bonus_crit}%'
+                if buffs[src][2] == "med_armor" or buffs[src][2] == "kilt":
+                    avg_crit += (buffs[src][0] * (float(self.ids[str(src)].text)))
+                    bonus_crit = str(round(buffs[src][0] * (float(self.ids[str(src)].text)), 2))
+                    self.ids[str(src2)].text = f'{bonus_crit}%'
+                    
+                else:
+                    avg_crit += (buffs[src][0] * ((float(self.ids[str(src)].text)) / 100))
+                    bonus_crit = str(round(buffs[src][0] * ((float(self.ids[str(src)].text)) / 100), 2))
+                    self.ids[str(src2)].text = f'{bonus_crit}%'
                 
         #If not selected
         else:
@@ -54,8 +61,12 @@ def calc_avg_crit(self, src, src2, val):
                 avg_crit -= (buffs[src][0] * buffs[src][1])
                 self.ids[str(src2)].text = f'0%'
             else:
-                avg_crit -= (buffs[src][0] * (float(self.ids[str(src)].text)))
-                self.ids[str(src2)].text = f'0%'
+                if buffs[src][2] == "med_armor" or buffs[src][2] == "kilt":
+                    avg_crit -= (buffs[src][0] * (float(self.ids[str(src)].text)))
+                    self.ids[str(src2)].text = f'0%'
+                else:
+                    avg_crit -= (buffs[src][0] * ((float(self.ids[str(src)].text)) / 100))
+                    self.ids[str(src2)].text = f'0%'
     #If Shadow         
     else:
         if val is True:
