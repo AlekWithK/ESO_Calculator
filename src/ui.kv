@@ -187,7 +187,7 @@
 			#The "spreadsheet"
 			GridLayout:
 				cols: 4
-				padding: [5, 20]
+				padding: [5, 10]
 				spacing: [20, 0]
 				Label:
 					text: "BUFF"
@@ -224,12 +224,320 @@
 
 				#-----ROW 1-----
 				Label:
+					text: "Fighting Finesse:"
+					font_name: "VERDANA"
+					font_size: 20
+
+					size_hint_x: None
+					width: 185
+					text_size: self.size
+					halign: "left"
+					valign: "top"
+				Label:
+					id: fight_f2
+					text: "0%"
+					font_name: "DUBAI-REGULAR"
+					font_size: 18
+
+					size_hint_x: None
+					width: 85
+				CheckBox:
+					id: fight_f_chk
+					on_active: root.checkbox_click(self, self.active, "fight_f", "fight_f2")
+
+					size_hint_x: None
+					width: 85
+				Label:
+					id: fight_f
+					text: "100"
+					font_name: "DUBAI-REGULAR"
+					font_size: 16
+
+					size_hint_x: None
+					width: 65
+
+				#-----ROW 2-----
+				Label:
+					text: "Backstabber:"
+					font_name: "VERDANA"
+					font_size: 20
+
+					size_hint_x: None
+					width: 185
+					text_size: self.size
+					halign: "left"
+					valign: "top"
+				Label:
+					id: backstab2
+					text: "0%"
+					font_name: "DUBAI-REGULAR"
+					font_size: 18
+
+					size_hint_x: None
+					width: 85
+				CheckBox:
+					id: backstab_chk
+					on_active: root.checkbox_click(self, self.active, "backstab", "backstab2")
+
+					size_hint_x: None
+					width: 85
+				Label:
+					id: backstab
+					text: "100"
+					font_name: "DUBAI-REGULAR"
+					font_size: 16
+
+					size_hint_x: None
+					width: 65
+
+				#-----ROW 3-----
+				Label:
+					text: "Templar/Blade:"
+					font_name: "VERDANA"
+					font_size: 20
+
+					size_hint_x: None
+					width: 185
+					text_size: self.size
+					halign: "left"
+					valign: "top"
+				Label:
+					id: temp_night2
+					text: "0%"
+					font_name: "DUBAI-REGULAR"
+					font_size: 18
+
+					size_hint_x: None
+					width: 85
+				CheckBox:
+					id: temp_night_chk
+					on_active: root.checkbox_click(self, self.active, "temp_night", "temp_night2")
+
+					size_hint_x: None
+					width: 85
+				Label:
+					id: temp_night
+					text: "100"
+					font_name: "DUBAI-REGULAR"
+					font_size: 16
+
+					size_hint_x: None
+					width: 65
+
+				#-----ROW 4-----
+				Label:
+					text: "Khajit:"
+					font_name: "VERDANA"
+					font_size: 20
+
+					size_hint_x: None
+					width: 185
+					text_size: self.size
+					halign: "left"
+					valign: "top"
+				Label:
+					id: khajit2
+					text: "0%"
+					font_name: "DUBAI-REGULAR"
+					font_size: 18
+
+					size_hint_x: None
+					width: 85
+				CheckBox:
+					id: khajit_chk
+					on_active: root.checkbox_click(self, self.active, "khajit", "khajit2")
+
+					size_hint_x: None
+					width: 85
+				Label:
+					id: khajit
+					text: "100"
+					font_name: "DUBAI-REGULAR"
+					font_size: 16
+
+					size_hint_x: None
+					width: 65
+
+				#-----ROW 5-----
+				Label:
+					text: "Malacath's Band:"
+					font_name: "VERDANA"
+					font_size: 20
+
+					size_hint_x: None
+					width: 185
+					text_size: self.size
+					halign: "left"
+					valign: "top"
+				Label:
+					id: malacath2
+					text: "0%"
+					font_name: "DUBAI-REGULAR"
+					font_size: 18
+
+					size_hint_x: None
+					width: 85
+				CheckBox:
+					id: malacath_chk
+					on_active: root.checkbox_click(self, self.active, "malacath", "malacath2")
+
+					size_hint_x: None
+					width: 85
+				Label:
+					id: malacath
+					text: "100"
+					font_name: "DUBAI-REGULAR"
+					font_size: 16
+
+					size_hint_x: None
+					width: 65
+
+				#-----ROW 6-----
+				Label:
+					text: "Harpooner's Kilt:"
+					font_name: "VERDANA"
+					font_size: 20
+
+					size_hint_x: None
+					width: 185
+					text_size: self.size
+					halign: "left"
+					valign: "top"
+				Label:
+					id: kilt2
+					text: "0%"
+					font_name: "DUBAI-REGULAR"
+					font_size: 18
+
+					size_hint_x: None
+					width: 85
+				CheckBox:
+					id: kilt_chk
+					on_active: root.checkbox_click(self, self.active, "kilt", "kilt2")
+
+					size_hint_x: None
+					width: 85
+				TextInput:
+					id: kilt
+					disabled: kilt_chk.active
+					multiline: False
+					write_tab: False
+					background_color: [1, 1, 1, .15]
+					foreground_color: [1, 1, 1, 1]
+					disabled_foreground_color: [1, 1, 1, 1]
+					hint_text_color: [1, 1, 1, 1]
+					cursor_color: [.1,1,.8,.4]
+					font_name: "DUBAI-REGULAR"
+
+					input_filter: 'int'
+					hint_text: '8 Stacks'
+					halign: 'center'
+					padding_y: [self.height / 2.0 - (self.line_height / 2.0) * len(self._lines), 0]
+
+					size_hint_x: None
+					width: 65
+
+				#-----ROW 7-----
+				Label:
+					text: "Medium Armor:"
+					font_name: "VERDANA"
+					font_size: 20
+
+					size_hint_x: None
+					width: 185
+					text_size: self.size
+					halign: "left"
+					valign: "top"
+				Label:
+					id: med_armor2
+					text: "0%"
+					font_name: "DUBAI-REGULAR"
+					font_size: 18
+
+					size_hint_x: None
+					width: 85
+				CheckBox:
+					id: med_armor_chk
+					on_active: root.checkbox_click(self, self.active, "med_armor", "med_armor2")
+
+					size_hint_x: None
+					width: 85
+				TextInput:
+					id: med_armor
+					disabled: med_armor_chk.active
+					multiline: False
+					write_tab: False
+					background_color: [1, 1, 1, .15]
+					foreground_color: [1, 1, 1, 1]
+					disabled_foreground_color: [1, 1, 1, 1]
+					hint_text_color: [1, 1, 1, 1]
+					cursor_color: [.1,1,.8,.4]
+					font_name: "DUBAI-REGULAR"
+
+					input_filter: 'int'
+					hint_text: '1 Piece'
+					halign: 'center'
+					padding_y: [self.height / 2.0 - (self.line_height / 2.0) * len(self._lines), 0]
+
+					size_hint_x: None
+					width: 65
+
+				#-----ROW 8-----
+				Label:
+					text: "Shadow Mundus:"
+					font_name: "VERDANA"
+					font_size: 20
+
+					size_hint_x: None
+					width: 185
+					text_size: self.size
+					halign: "left"
+					valign: "top"
+				Label:
+					id: shadow2
+					text: "0%"
+					font_name: "DUBAI-REGULAR"
+					font_size: 18
+
+					size_hint_x: None
+					width: 85
+				CheckBox:
+					id: shadow_chk
+					on_active: root.checkbox_click(self, self.active, "shadow", "shadow2")
+
+					size_hint_x: None
+					width: 85
+				TextInput:
+					id: shadow
+					disabled: shadow_chk.active
+					multiline: False
+					write_tab: False
+					background_color: [1, 1, 1, .15]
+					foreground_color: [1, 1, 1, 1]
+					disabled_foreground_color: [1, 1, 1, 1]
+					hint_text_color: [1, 1, 1, 1]
+					cursor_color: [.1,1,.8,.4]
+					font_name: "DUBAI-REGULAR"
+
+					input_filter: 'int'
+					hint_text: '7 Divine'
+					halign: 'center'
+					padding_y: [self.height / 2.0 - (self.line_height / 2.0) * len(self._lines), 0]
+
+					size_hint_x: None
+					width: 65
+
+				#-----ROW 9-----
+				Label:
 					text: "Major Force:"
 					font_name: "VERDANA"
 					font_size: 20
 
 					size_hint_x: None
 					width: 185
+					text_size: self.size
+					halign: "left"
+					valign: "top"
 				Label:
 					id: maj_force2
 					text: "0%"
@@ -265,7 +573,7 @@
 					width: 65
 					padding: [20, 0]
 
-				#-----ROW 2-----
+				#-----ROW 10-----
 				Label:
 					text: "Minor Force:"
 					font_name: "VERDANA"
@@ -273,6 +581,9 @@
 
 					size_hint_x: None
 					width: 185
+					text_size: self.size
+					halign: "left"
+					valign: "top"
 				Label:
 					id: min_force2
 					text: "0%"
@@ -307,16 +618,19 @@
 					size_hint_x: None
 					width: 65
 
-				#-----ROW 3-----
+				#-----ROW 11-----
 				Label:
-					text: "Fighting Finesse:"
+					text: "Elemental Catalyst:"
 					font_name: "VERDANA"
-					font_size: 20
+					font_size: 18
 
 					size_hint_x: None
 					width: 185
+					text_size: self.size
+					halign: "left"
+					valign: "top"
 				Label:
-					id: fight_f2
+					id: catalyst2
 					text: "0%"
 					font_name: "DUBAI-REGULAR"
 					font_size: 18
@@ -324,30 +638,44 @@
 					size_hint_x: None
 					width: 85
 				CheckBox:
-					id: fight_f_chk
-					on_active: root.checkbox_click(self, self.active, "fight_f", "fight_f2")
+					id: catalyst_chk
+					on_active: root.checkbox_click(self, self.active, "catalyst", "catalyst2")
 
 					size_hint_x: None
 					width: 85
-				Label:
-					id: fight_f
-					text: "100"
+				TextInput:
+					id: catalyst
+					disabled: catalyst_chk.active
+					multiline: False
+					write_tab: False
+					background_color: [1, 1, 1, .15]
+					foreground_color: [1, 1, 1, 1]
+					disabled_foreground_color: [1, 1, 1, 1]
+					hint_text_color: [1, 1, 1, 1]
+					cursor_color: [.1,1,.8,.4]
 					font_name: "DUBAI-REGULAR"
-					font_size: 16
+
+					input_filter: 'float'
+					hint_text: '83'
+					halign: 'center'
+					padding_y: [self.height / 2.0 - (self.line_height / 2.0) * len(self._lines), 0]
 
 					size_hint_x: None
 					width: 65
 
-				#-----ROW 4-----
+				#-----ROW 12-----
 				Label:
-					text: "Backstabber:"
+					text: "Minor Brittle:"
 					font_name: "VERDANA"
 					font_size: 20
 
 					size_hint_x: None
 					width: 185
+					text_size: self.size
+					halign: "left"
+					valign: "top"
 				Label:
-					id: backstab2
+					id: brittle2
 					text: "0%"
 					font_name: "DUBAI-REGULAR"
 					font_size: 18
@@ -355,83 +683,32 @@
 					size_hint_x: None
 					width: 85
 				CheckBox:
-					id: backstab_chk
-					on_active: root.checkbox_click(self, self.active, "backstab", "backstab2")
+					id: brittle_chk
+					on_active: root.checkbox_click(self, self.active, "brittle", "brittle2")
 
 					size_hint_x: None
 					width: 85
-				Label:
-					id: backstab
-					text: "100"
+				TextInput:
+					id: brittle
+					disabled: brittle_chk.active
+					multiline: False
+					write_tab: False
+					background_color: [1, 1, 1, .15]
+					foreground_color: [1, 1, 1, 1]
+					disabled_foreground_color: [1, 1, 1, 1]
+					hint_text_color: [1, 1, 1, 1]
+					cursor_color: [.1,1,.8,.4]
 					font_name: "DUBAI-REGULAR"
-					font_size: 16
+
+					input_filter: 'float'
+					hint_text: '60'
+					halign: 'center'
+					padding_y: [self.height / 2.0 - (self.line_height / 2.0) * len(self._lines), 0]
 
 					size_hint_x: None
-					width: 65
+					width: 65				
 
-				#-----ROW 5-----
-				Label:
-					text: "Templar/Blade:"
-					font_name: "VERDANA"
-					font_size: 20
-
-					size_hint_x: None
-					width: 185
-				Label:
-					id: temp_night2
-					text: "0%"
-					font_name: "DUBAI-REGULAR"
-					font_size: 18
-
-					size_hint_x: None
-					width: 85
-				CheckBox:
-					id: temp_night_chk
-					on_active: root.checkbox_click(self, self.active, "temp_night", "temp_night2")
-
-					size_hint_x: None
-					width: 85
-				Label:
-					id: temp_night
-					text: "100"
-					font_name: "DUBAI-REGULAR"
-					font_size: 16
-
-					size_hint_x: None
-					width: 65
-
-				#-----ROW 6-----
-				Label:
-					text: "Khajit:"
-					font_name: "VERDANA"
-					font_size: 20
-
-					size_hint_x: None
-					width: 185
-				Label:
-					id: khajit2
-					text: "0%"
-					font_name: "DUBAI-REGULAR"
-					font_size: 18
-
-					size_hint_x: None
-					width: 85
-				CheckBox:
-					id: khajit_chk
-					on_active: root.checkbox_click(self, self.active, "khajit", "khajit2")
-
-					size_hint_x: None
-					width: 85
-				Label:
-					id: khajit
-					text: "100"
-					font_name: "DUBAI-REGULAR"
-					font_size: 16
-
-					size_hint_x: None
-					width: 65
-
-				#-----ROW 7-----
+				#-----ROW 13-----
 				Label:
 					text: "Glacial Presence:"
 					font_name: "VERDANA"
@@ -439,6 +716,9 @@
 
 					size_hint_x: None
 					width: 185
+					text_size: self.size
+					halign: "left"
+					valign: "top"
 				Label:
 					id: glacial2
 					text: "0%"
@@ -471,93 +751,9 @@
 					padding_y: [self.height / 2.0 - (self.line_height / 2.0) * len(self._lines), 0]
 
 					size_hint_x: None
-					width: 65
+					width: 65				
 
-				#-----ROW 8-----
-				Label:
-					text: "Medium Armor:"
-					font_name: "VERDANA"
-					font_size: 20
-
-					size_hint_x: None
-					width: 185
-				Label:
-					id: med_armor2
-					text: "0%"
-					font_name: "DUBAI-REGULAR"
-					font_size: 18
-
-					size_hint_x: None
-					width: 85
-				CheckBox:
-					id: med_armor_chk
-					on_active: root.checkbox_click(self, self.active, "med_armor", "med_armor2")
-
-					size_hint_x: None
-					width: 85
-				TextInput:
-					id: med_armor
-					disabled: med_armor_chk.active
-					multiline: False
-					write_tab: False
-					background_color: [1, 1, 1, .15]
-					foreground_color: [1, 1, 1, 1]
-					disabled_foreground_color: [1, 1, 1, 1]
-					hint_text_color: [1, 1, 1, 1]
-					cursor_color: [.1,1,.8,.4]
-					font_name: "DUBAI-REGULAR"
-
-					input_filter: 'int'
-					hint_text: '1 Piece'
-					halign: 'center'
-					padding_y: [self.height / 2.0 - (self.line_height / 2.0) * len(self._lines), 0]
-
-					size_hint_x: None
-					width: 65
-
-				#-----ROW 9-----
-				Label:
-					text: "Shadow Mundus:"
-					font_name: "VERDANA"
-					font_size: 20
-
-					size_hint_x: None
-					width: 185
-				Label:
-					id: shadow2
-					text: "0%"
-					font_name: "DUBAI-REGULAR"
-					font_size: 18
-
-					size_hint_x: None
-					width: 85
-				CheckBox:
-					id: shadow_chk
-					on_active: root.checkbox_click(self, self.active, "shadow", "shadow2")
-
-					size_hint_x: None
-					width: 85
-				TextInput:
-					id: shadow
-					disabled: shadow_chk.active
-					multiline: False
-					write_tab: False
-					background_color: [1, 1, 1, .15]
-					foreground_color: [1, 1, 1, 1]
-					disabled_foreground_color: [1, 1, 1, 1]
-					hint_text_color: [1, 1, 1, 1]
-					cursor_color: [.1,1,.8,.4]
-					font_name: "DUBAI-REGULAR"
-
-					input_filter: 'int'
-					hint_text: '7 Divine'
-					halign: 'center'
-					padding_y: [self.height / 2.0 - (self.line_height / 2.0) * len(self._lines), 0]
-
-					size_hint_x: None
-					width: 65
-
-				#-----ROW 10-----
+				#-----ROW 14-----
 				Label:
 					text: "Two-Handed Axe:"
 					font_name: "VERDANA"
@@ -565,6 +761,9 @@
 
 					size_hint_x: None
 					width: 185
+					text_size: self.size
+					halign: "left"
+					valign: "top"
 				Label:
 					id: twoHaxe2
 					text: "0%"
@@ -599,7 +798,7 @@
 					size_hint_x: None
 					width: 65
 
-				#-----ROW 11-----
+				#-----ROW 15-----
 				Label:
 					text: "Dual Wield Axe:"
 					font_name: "VERDANA"
@@ -607,6 +806,9 @@
 
 					size_hint_x: None
 					width: 185
+					text_size: self.size
+					halign: "left"
+					valign: "top"
 				Label:
 					id: twinblade2
 					text: "0%"
@@ -639,51 +841,9 @@
 					padding_y: [self.height / 2.0 - (self.line_height / 2.0) * len(self._lines), 0]
 
 					size_hint_x: None
-					width: 65
+					width: 65				
 
-				#-----ROW 12-----
-				Label:
-					text: "Harpooner's Kilt:"
-					font_name: "VERDANA"
-					font_size: 20
-
-					size_hint_x: None
-					width: 185
-				Label:
-					id: kilt2
-					text: "0%"
-					font_name: "DUBAI-REGULAR"
-					font_size: 18
-
-					size_hint_x: None
-					width: 85
-				CheckBox:
-					id: kilt_chk
-					on_active: root.checkbox_click(self, self.active, "kilt", "kilt2")
-
-					size_hint_x: None
-					width: 85
-				TextInput:
-					id: kilt
-					disabled: kilt_chk.active
-					multiline: False
-					write_tab: False
-					background_color: [1, 1, 1, .15]
-					foreground_color: [1, 1, 1, 1]
-					disabled_foreground_color: [1, 1, 1, 1]
-					hint_text_color: [1, 1, 1, 1]
-					cursor_color: [.1,1,.8,.4]
-					font_name: "DUBAI-REGULAR"
-
-					input_filter: 'int'
-					hint_text: '8 Stacks'
-					halign: 'center'
-					padding_y: [self.height / 2.0 - (self.line_height / 2.0) * len(self._lines), 0]
-
-					size_hint_x: None
-					width: 65
-
-				#-----ROW 13-----
+				#-----ROW 16-----
 				Label:
 					text: "Sul-Xan's Torment:"
 					font_name: "VERDANA"
@@ -691,6 +851,9 @@
 
 					size_hint_x: None
 					width: 185
+					text_size: self.size
+					halign: "left"
+					valign: "top"
 				Label:
 					id: sulxan2
 					text: "0%"
@@ -725,120 +888,6 @@
 					size_hint_x: None
 					width: 65
 
-				#-----ROW 14-----
-				Label:
-					text: "Malacath's Band:"
-					font_name: "VERDANA"
-					font_size: 20
-
-					size_hint_x: None
-					width: 185
-				Label:
-					id: malacath2
-					text: "0%"
-					font_name: "DUBAI-REGULAR"
-					font_size: 18
-
-					size_hint_x: None
-					width: 85
-				CheckBox:
-					id: malacath_chk
-					on_active: root.checkbox_click(self, self.active, "malacath", "malacath2")
-
-					size_hint_x: None
-					width: 85
-				Label:
-					id: malacath
-					text: "100"
-					font_name: "DUBAI-REGULAR"
-					font_size: 16
-
-					size_hint_x: None
-					width: 65
-
-				#-----ROW 15-----
-				Label:
-					text: "Minor Brittle:"
-					font_name: "VERDANA"
-					font_size: 20
-
-					size_hint_x: None
-					width: 185
-				Label:
-					id: brittle2
-					text: "0%"
-					font_name: "DUBAI-REGULAR"
-					font_size: 18
-
-					size_hint_x: None
-					width: 85
-				CheckBox:
-					id: brittle_chk
-					on_active: root.checkbox_click(self, self.active, "brittle", "brittle2")
-
-					size_hint_x: None
-					width: 85
-				TextInput:
-					id: brittle
-					disabled: brittle_chk.active
-					multiline: False
-					write_tab: False
-					background_color: [1, 1, 1, .15]
-					foreground_color: [1, 1, 1, 1]
-					disabled_foreground_color: [1, 1, 1, 1]
-					hint_text_color: [1, 1, 1, 1]
-					cursor_color: [.1,1,.8,.4]
-					font_name: "DUBAI-REGULAR"
-
-					input_filter: 'float'
-					hint_text: '60'
-					halign: 'center'
-					padding_y: [self.height / 2.0 - (self.line_height / 2.0) * len(self._lines), 0]
-
-					size_hint_x: None
-					width: 65
-
-				#-----ROW 16-----
-				Label:
-					text: "Elemental Catalyst:"
-					font_name: "VERDANA"
-					font_size: 18
-
-					size_hint_x: None
-					width: 185
-				Label:
-					id: catalyst2
-					text: "0%"
-					font_name: "DUBAI-REGULAR"
-					font_size: 18
-
-					size_hint_x: None
-					width: 85
-				CheckBox:
-					id: catalyst_chk
-					on_active: root.checkbox_click(self, self.active, "catalyst", "catalyst2")
-
-					size_hint_x: None
-					width: 85
-				TextInput:
-					id: catalyst
-					disabled: catalyst_chk.active
-					multiline: False
-					write_tab: False
-					background_color: [1, 1, 1, .15]
-					foreground_color: [1, 1, 1, 1]
-					disabled_foreground_color: [1, 1, 1, 1]
-					hint_text_color: [1, 1, 1, 1]
-					cursor_color: [.1,1,.8,.4]
-					font_name: "DUBAI-REGULAR"
-
-					input_filter: 'float'
-					hint_text: '83'
-					halign: 'center'
-					padding_y: [self.height / 2.0 - (self.line_height / 2.0) * len(self._lines), 0]
-
-					size_hint_x: None
-					width: 65
 
 			#Result Row
 			Label:
