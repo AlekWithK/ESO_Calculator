@@ -8,7 +8,6 @@ from kivy.lang import Builder
 from kivy.uix.tabbedpanel import TabbedPanel
 from kivy.core.window import Window
 from kivy.uix.textinput import TextInput
-from kivy.clock import Clock
 
 #Worker functions
 from funcs import normalizer, calc_avg_crit, calc_max_crit, kilt_update
