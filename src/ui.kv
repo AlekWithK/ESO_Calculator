@@ -1,0 +1,983 @@
+<TabbedPanelHeader>
+	background_color: [.1,1,.8,1] #Button color	
+
+<TabbedPanel>
+	do_default_tab: False
+	tab_width: (self.width - 6) / 3
+	tab_pos: 'top_mid'
+	
+	TabbedPanelItem: #Parse Normalizer
+		text: "Parse Normalizer"
+		font_name: 'Impact'
+		font_size: 19
+		GridLayout:
+			cols: 1
+			padding: [150, 30]
+			spacing: [0, 15]
+			canvas.before:
+				Color:
+					rgba:[.21,.21,.21,1]
+				Rectangle:
+					size: self.size
+					pos: self.pos
+					source: 'Resources/gradient.jpg'		
+			TextInput:
+				id: t_dps
+				multiline: False
+				write_tab: False
+				background_color: [1, 1, 1, .15]
+				foreground_color: [1, 1, 1, 1]
+				disabled_foreground_color: [1, 1, 1, 1]
+				hint_text_color: [1, 1, 1, 1]
+				cursor_color: [.1,1,.8,.4]
+
+				input_filter: 'int'		
+				hint_text: "Total DPS"
+				tooltip_text: "Your total DPS"
+				halign: 'center'
+				font_size: 20			
+
+				size_hint_x: None
+				size_hint_y: None
+				width: 200
+				height: 40
+			TextInput:
+				id: c_chance
+				multiline: False
+				write_tab: False
+				background_color: [1, 1, 1, .15]
+				foreground_color: [1, 1, 1, 1]
+				disabled_foreground_color: [1, 1, 1, 1]
+				hint_text_color: [1, 1, 1, 1]
+				cursor_color: [.1,1,.8,.4]
+
+				input_filter: 'float'				
+				hint_text: "Crit Chance"
+				halign: 'center'
+				font_size: 20
+
+				size_hint_x: None
+				size_hint_y: None
+				width: 200
+				height: 40
+			TextInput:
+				id: t_hits
+				multiline: False
+				write_tab: False
+				background_color: [1, 1, 1, .15]
+				foreground_color: [1, 1, 1, 1]
+				disabled_foreground_color: [1, 1, 1, 1]
+				hint_text_color: [1, 1, 1, 1]
+				cursor_color: [.1,1,.8,.4]
+
+				input_filter: 'int'		
+				hint_text: "Total Hits"
+				halign: 'center'
+				font_size: 20			
+
+				size_hint_x: None
+				size_hint_y: None
+				width: 200
+				height: 40
+			TextInput:
+				id: t_c_hits
+				multiline: False
+				write_tab: False
+				background_color: [1, 1, 1, .15]
+				foreground_color: [1, 1, 1, 1]
+				disabled_foreground_color: [1, 1, 1, 1]
+				hint_text_color: [1, 1, 1, 1]
+				cursor_color: [.1,1,.8,.4]
+
+				input_filter: 'int'				
+				hint_text: "Total Critical Hits"
+				halign: 'center'
+				font_size: 20
+
+				size_hint_x: None
+				size_hint_y: None
+				width: 200
+				height: 40
+			TextInput:
+				id: t_non_hits
+				multiline: False
+				write_tab: False
+				background_color: [1, 1, 1, .15]
+				foreground_color: [1, 1, 1, 1]
+				disabled_foreground_color: [1, 1, 1, 1]
+				hint_text_color: [1, 1, 1, 1]
+				cursor_color: [.1,1,.8,.4]
+
+				input_filter: 'int'		
+				hint_text: "Total Non-Hits"
+				halign: 'center'
+				font_size: 20			
+
+				size_hint_x: None
+				size_hint_y: None
+				width: 200
+				height: 40
+			TextInput:
+				id: c_damage
+				multiline: False
+				write_tab: False
+				background_color: [1, 1, 1, .15]
+				foreground_color: [1, 1, 1, 1]
+				disabled_foreground_color: [1, 1, 1, 1]
+				hint_text_color: [1, 1, 1, 1]
+				cursor_color: [.1,1,.8,.4]
+				
+				input_filter: 'float'				
+				hint_text: "Critical Damage"
+				halign: 'center'
+				font_size: 20
+
+				size_hint_x: None
+				size_hint_y: None
+				width: 200
+				height: 40
+
+			Label:
+				canvas.before:
+					Color:
+						rgba:[.1,1,.8,.10]
+					Rectangle:
+						size: self.size
+						pos: self.pos
+					Line:
+						width: 5
+						rectangle: self.x, self.y, self.width, self.height
+
+				id: result_lbl
+				size_hint_y: None
+				height: 150
+				text: ""
+				font_size: 24
+
+			Button:
+				padding: [20, 20]
+				text: "Calculate"
+				font_name: "Impact"
+				font_size: 26
+				background_color: [.1,1,.8,1]
+
+				size_hint_x: None
+				size_hint_y: None
+				width: 200
+				height: 50
+
+				on_release: root.normalizer_pressed()
+
+	TabbedPanelItem: #Crit Calculator
+		text: "Crit Calculator"
+		font_name: 'Impact'
+		font_size: 19
+
+		#The whole window
+		GridLayout:
+			cols: 1
+			canvas.before:
+				Color:
+					rgba:[.21,.21,.21,1]
+				Rectangle:
+					size: self.size
+					pos: self.pos
+					source: 'Resources/gradient.jpg'
+
+			#The "spreadsheet"
+			GridLayout:
+				cols: 4
+				padding: [5, 10]
+				spacing: [20, 0]
+				Label:
+					text: "BUFF"
+					font_name: "IMPACT"
+					font_size: 22
+					color: [.1,1,.8,.50]
+
+					size_hint_x: None
+					width: 185
+				Label:
+					text: "BONUS"
+					font_name: "IMPACT"
+					font_size: 22
+					color: [.1,1,.8,.50]
+
+					size_hint_x: None
+					width: 85
+				Label:
+					text: "SELECT"
+					font_name: "IMPACT"
+					font_size: 22
+					color: [.1,1,.8,.50]
+
+					size_hint_x: None
+					width: 85
+				Label:
+					text: "% UPTIME"
+					font_name: "IMPACT"
+					font_size: 22
+					color: [.1,1,.8,.50]
+
+					size_hint_x: None
+					width: 65
+
+				#-----ROW 1-----
+				Label:
+					text: "Fighting Finesse:"
+					font_name: "VERDANA"
+					font_size: 20
+
+					size_hint_x: None
+					width: 185
+					text_size: self.size
+					halign: "left"
+					valign: "top"
+				Label:
+					id: fight_f2
+					text: "0%"
+					font_name: "DUBAI-REGULAR"
+					font_size: 18
+
+					size_hint_x: None
+					width: 85
+				CheckBox:
+					id: fight_f_chk
+					on_active: root.checkbox_click(self, self.active, "fight_f", "fight_f2")
+
+					size_hint_x: None
+					width: 85
+				Label:
+					id: fight_f
+					text: "100"
+					font_name: "DUBAI-REGULAR"
+					font_size: 16
+
+					size_hint_x: None
+					width: 65
+
+				#-----ROW 2-----
+				Label:
+					text: "Backstabber:"
+					font_name: "VERDANA"
+					font_size: 20
+
+					size_hint_x: None
+					width: 185
+					text_size: self.size
+					halign: "left"
+					valign: "top"
+				Label:
+					id: backstab2
+					text: "0%"
+					font_name: "DUBAI-REGULAR"
+					font_size: 18
+
+					size_hint_x: None
+					width: 85
+				CheckBox:
+					id: backstab_chk
+					on_active: root.checkbox_click(self, self.active, "backstab", "backstab2")
+
+					size_hint_x: None
+					width: 85
+				Label:
+					id: backstab
+					text: "100"
+					font_name: "DUBAI-REGULAR"
+					font_size: 16
+
+					size_hint_x: None
+					width: 65
+
+				#-----ROW 3-----
+				Label:
+					text: "Templar/Blade:"
+					font_name: "VERDANA"
+					font_size: 20
+
+					size_hint_x: None
+					width: 185
+					text_size: self.size
+					halign: "left"
+					valign: "top"
+				Label:
+					id: temp_night2
+					text: "0%"
+					font_name: "DUBAI-REGULAR"
+					font_size: 18
+
+					size_hint_x: None
+					width: 85
+				CheckBox:
+					id: temp_night_chk
+					on_active: root.checkbox_click(self, self.active, "temp_night", "temp_night2")
+
+					size_hint_x: None
+					width: 85
+				Label:
+					id: temp_night
+					text: "100"
+					font_name: "DUBAI-REGULAR"
+					font_size: 16
+
+					size_hint_x: None
+					width: 65
+
+				#-----ROW 4-----
+				Label:
+					text: "Khajit:"
+					font_name: "VERDANA"
+					font_size: 20
+
+					size_hint_x: None
+					width: 185
+					text_size: self.size
+					halign: "left"
+					valign: "top"
+				Label:
+					id: khajit2
+					text: "0%"
+					font_name: "DUBAI-REGULAR"
+					font_size: 18
+
+					size_hint_x: None
+					width: 85
+				CheckBox:
+					id: khajit_chk
+					on_active: root.checkbox_click(self, self.active, "khajit", "khajit2")
+
+					size_hint_x: None
+					width: 85
+				Label:
+					id: khajit
+					text: "100"
+					font_name: "DUBAI-REGULAR"
+					font_size: 16
+
+					size_hint_x: None
+					width: 65
+
+				#-----ROW 5-----
+				Label:
+					text: "Malacath's Band:"
+					font_name: "VERDANA"
+					font_size: 20
+
+					size_hint_x: None
+					width: 185
+					text_size: self.size
+					halign: "left"
+					valign: "top"
+				Label:
+					id: malacath2
+					text: "0%"
+					font_name: "DUBAI-REGULAR"
+					font_size: 18
+
+					size_hint_x: None
+					width: 85
+				CheckBox:
+					id: malacath_chk
+					on_active: root.checkbox_click(self, self.active, "malacath", "malacath2")
+
+					size_hint_x: None
+					width: 85
+				Label:
+					id: malacath
+					text: "100"
+					font_name: "DUBAI-REGULAR"
+					font_size: 16
+
+					size_hint_x: None
+					width: 65
+
+				#-----ROW 6-----
+				Label:
+					text: "Harpooner's Kilt:"
+					font_name: "VERDANA"
+					font_size: 20
+
+					size_hint_x: None
+					width: 185
+					text_size: self.size
+					halign: "left"
+					valign: "top"
+				Label:
+					id: kilt2
+					text: "0%"
+					font_name: "DUBAI-REGULAR"
+					font_size: 18
+
+					size_hint_x: None
+					width: 85
+				CheckBox:
+					id: kilt_chk
+					on_active: root.checkbox_click(self, self.active, "kilt", "kilt2")
+
+					size_hint_x: None
+					width: 85
+				TextInput:
+					id: kilt
+					disabled: kilt_chk.active
+					multiline: False
+					write_tab: False
+					background_color: [1, 1, 1, .15]
+					foreground_color: [1, 1, 1, 1]
+					disabled_foreground_color: [1, 1, 1, 1]
+					hint_text_color: [1, 1, 1, 1]
+					cursor_color: [.1,1,.8,.4]
+					font_name: "DUBAI-REGULAR"
+
+					input_filter: 'int'
+					hint_text: '8 Stacks'
+					halign: 'center'
+					padding_y: [self.height / 2.0 - (self.line_height / 2.0) * len(self._lines), 0]
+
+					size_hint_x: None
+					width: 65
+
+				#-----ROW 7-----
+				Label:
+					text: "Medium Armor:"
+					font_name: "VERDANA"
+					font_size: 20
+
+					size_hint_x: None
+					width: 185
+					text_size: self.size
+					halign: "left"
+					valign: "top"
+				Label:
+					id: med_armor2
+					text: "0%"
+					font_name: "DUBAI-REGULAR"
+					font_size: 18
+
+					size_hint_x: None
+					width: 85
+				CheckBox:
+					id: med_armor_chk
+					on_active: root.checkbox_click(self, self.active, "med_armor", "med_armor2")
+
+					size_hint_x: None
+					width: 85
+				TextInput:
+					id: med_armor
+					disabled: med_armor_chk.active
+					multiline: False
+					write_tab: False
+					background_color: [1, 1, 1, .15]
+					foreground_color: [1, 1, 1, 1]
+					disabled_foreground_color: [1, 1, 1, 1]
+					hint_text_color: [1, 1, 1, 1]
+					cursor_color: [.1,1,.8,.4]
+					font_name: "DUBAI-REGULAR"
+
+					input_filter: 'int'
+					hint_text: '1 Piece'
+					halign: 'center'
+					padding_y: [self.height / 2.0 - (self.line_height / 2.0) * len(self._lines), 0]
+
+					size_hint_x: None
+					width: 65
+
+				#-----ROW 8-----
+				Label:
+					text: "Shadow Mundus:"
+					font_name: "VERDANA"
+					font_size: 20
+
+					size_hint_x: None
+					width: 185
+					text_size: self.size
+					halign: "left"
+					valign: "top"
+				Label:
+					id: shadow2
+					text: "0%"
+					font_name: "DUBAI-REGULAR"
+					font_size: 18
+
+					size_hint_x: None
+					width: 85
+				CheckBox:
+					id: shadow_chk
+					on_active: root.checkbox_click(self, self.active, "shadow", "shadow2")
+
+					size_hint_x: None
+					width: 85
+				TextInput:
+					id: shadow
+					disabled: shadow_chk.active
+					multiline: False
+					write_tab: False
+					background_color: [1, 1, 1, .15]
+					foreground_color: [1, 1, 1, 1]
+					disabled_foreground_color: [1, 1, 1, 1]
+					hint_text_color: [1, 1, 1, 1]
+					cursor_color: [.1,1,.8,.4]
+					font_name: "DUBAI-REGULAR"
+
+					input_filter: 'int'
+					hint_text: '7 Divine'
+					halign: 'center'
+					padding_y: [self.height / 2.0 - (self.line_height / 2.0) * len(self._lines), 0]
+
+					size_hint_x: None
+					width: 65
+
+				#-----ROW 9-----
+				Label:
+					text: "Major Force:"
+					font_name: "VERDANA"
+					font_size: 20
+
+					size_hint_x: None
+					width: 185
+					text_size: self.size
+					halign: "left"
+					valign: "top"
+				Label:
+					id: maj_force2
+					text: "0%"
+					font_name: "DUBAI-REGULAR"
+					font_size: 18
+
+					size_hint_x: None
+					width: 85
+				CheckBox:
+					id: maj_force_chk
+					on_active: root.checkbox_click(self, self.active, "maj_force", "maj_force2")
+
+					size_hint_x: None
+					width: 85				
+				TextInput:
+					id: maj_force
+					disabled: maj_force_chk.active
+					multiline: False
+					write_tab: False
+					background_color: [1, 1, 1, .15]
+					foreground_color: [1, 1, 1, 1]
+					disabled_foreground_color: [1, 1, 1, 1]
+					hint_text_color: [1, 1, 1, 1]
+					cursor_color: [.1,1,.8,.4]
+					font_name: "DUBAI-REGULAR"
+
+					input_filter: 'float'
+					hint_text: '75'
+					halign: 'center'
+					padding_y: [self.height / 2.0 - (self.line_height / 2.0) * len(self._lines), 0]
+
+					size_hint_x: None
+					width: 65
+					padding: [20, 0]
+
+				#-----ROW 10-----
+				Label:
+					text: "Minor Force:"
+					font_name: "VERDANA"
+					font_size: 20
+
+					size_hint_x: None
+					width: 185
+					text_size: self.size
+					halign: "left"
+					valign: "top"
+				Label:
+					id: min_force2
+					text: "0%"
+					font_name: "DUBAI-REGULAR"
+					font_size: 18
+
+					size_hint_x: None
+					width: 85
+				CheckBox:
+					id: min_force_chk
+					on_active: root.checkbox_click(self, self.active, "min_force", "min_force2")
+
+					size_hint_x: None
+					width: 85
+				TextInput:
+					id: min_force
+					disabled: min_force_chk.active
+					multiline: False
+					write_tab: False
+					background_color: [1, 1, 1, .15]
+					foreground_color: [1, 1, 1, 1]
+					disabled_foreground_color: [1, 1, 1, 1]
+					hint_text_color: [1, 1, 1, 1]
+					cursor_color: [.1,1,.8,.4]
+					font_name: "DUBAI-REGULAR"
+
+					input_filter: 'float'
+					hint_text: '90'
+					halign: 'center'
+					padding_y: [self.height / 2.0 - (self.line_height / 2.0) * len(self._lines), 0]
+
+					size_hint_x: None
+					width: 65
+
+				#-----ROW 11-----
+				Label:
+					text: "Elemental Catalyst:"
+					font_name: "VERDANA"
+					font_size: 18
+
+					size_hint_x: None
+					width: 185
+					text_size: self.size
+					halign: "left"
+					valign: "top"
+				Label:
+					id: catalyst2
+					text: "0%"
+					font_name: "DUBAI-REGULAR"
+					font_size: 18
+
+					size_hint_x: None
+					width: 85
+				CheckBox:
+					id: catalyst_chk
+					on_active: root.checkbox_click(self, self.active, "catalyst", "catalyst2")
+
+					size_hint_x: None
+					width: 85
+				TextInput:
+					id: catalyst
+					disabled: catalyst_chk.active
+					multiline: False
+					write_tab: False
+					background_color: [1, 1, 1, .15]
+					foreground_color: [1, 1, 1, 1]
+					disabled_foreground_color: [1, 1, 1, 1]
+					hint_text_color: [1, 1, 1, 1]
+					cursor_color: [.1,1,.8,.4]
+					font_name: "DUBAI-REGULAR"
+
+					input_filter: 'float'
+					hint_text: '83'
+					halign: 'center'
+					padding_y: [self.height / 2.0 - (self.line_height / 2.0) * len(self._lines), 0]
+
+					size_hint_x: None
+					width: 65
+
+				#-----ROW 12-----
+				Label:
+					text: "Minor Brittle:"
+					font_name: "VERDANA"
+					font_size: 20
+
+					size_hint_x: None
+					width: 185
+					text_size: self.size
+					halign: "left"
+					valign: "top"
+				Label:
+					id: brittle2
+					text: "0%"
+					font_name: "DUBAI-REGULAR"
+					font_size: 18
+
+					size_hint_x: None
+					width: 85
+				CheckBox:
+					id: brittle_chk
+					on_active: root.checkbox_click(self, self.active, "brittle", "brittle2")
+
+					size_hint_x: None
+					width: 85
+				TextInput:
+					id: brittle
+					disabled: brittle_chk.active
+					multiline: False
+					write_tab: False
+					background_color: [1, 1, 1, .15]
+					foreground_color: [1, 1, 1, 1]
+					disabled_foreground_color: [1, 1, 1, 1]
+					hint_text_color: [1, 1, 1, 1]
+					cursor_color: [.1,1,.8,.4]
+					font_name: "DUBAI-REGULAR"
+
+					input_filter: 'float'
+					hint_text: '60'
+					halign: 'center'
+					padding_y: [self.height / 2.0 - (self.line_height / 2.0) * len(self._lines), 0]
+
+					size_hint_x: None
+					width: 65				
+
+				#-----ROW 13-----
+				Label:
+					text: "Glacial Presence:"
+					font_name: "VERDANA"
+					font_size: 20
+
+					size_hint_x: None
+					width: 185
+					text_size: self.size
+					halign: "left"
+					valign: "top"
+				Label:
+					id: glacial2
+					text: "0%"
+					font_name: "DUBAI-REGULAR"
+					font_size: 18
+
+					size_hint_x: None
+					width: 85
+				CheckBox:
+					id: glacial_chk
+					on_active: root.checkbox_click(self, self.active, "glacial", "glacial2")
+
+					size_hint_x: None
+					width: 85
+				TextInput:
+					id: glacial
+					disabled: glacial_chk.active
+					multiline: False
+					write_tab: False
+					background_color: [1, 1, 1, .15]
+					foreground_color: [1, 1, 1, 1]
+					disabled_foreground_color: [1, 1, 1, 1]
+					hint_text_color: [1, 1, 1, 1]
+					cursor_color: [.1,1,.8,.4]
+					font_name: "DUBAI-REGULAR"
+
+					input_filter: 'float'
+					hint_text: '75'
+					halign: 'center'
+					padding_y: [self.height / 2.0 - (self.line_height / 2.0) * len(self._lines), 0]
+
+					size_hint_x: None
+					width: 65				
+
+				#-----ROW 14-----
+				Label:
+					text: "Two-Handed Axe:"
+					font_name: "VERDANA"
+					font_size: 20
+
+					size_hint_x: None
+					width: 185
+					text_size: self.size
+					halign: "left"
+					valign: "top"
+				Label:
+					id: twoHaxe2
+					text: "0%"
+					font_name: "DUBAI-REGULAR"
+					font_size: 18
+
+					size_hint_x: None
+					width: 85
+				CheckBox:
+					id: twoHaxe_chk
+					on_active: root.checkbox_click(self, self.active, "twoHaxe", "twoHaxe2")
+
+					size_hint_x: None
+					width: 85
+				TextInput:
+					id: twoHaxe
+					disabled: twoHaxe_chk.active
+					multiline: False
+					write_tab: False
+					background_color: [1, 1, 1, .15]
+					foreground_color: [1, 1, 1, 1]
+					disabled_foreground_color: [1, 1, 1, 1]
+					hint_text_color: [1, 1, 1, 1]
+					cursor_color: [.1,1,.8,.4]
+					font_name: "DUBAI-REGULAR"
+
+					input_filter: 'float'
+					hint_text: '65'
+					halign: 'center'
+					padding_y: [self.height / 2.0 - (self.line_height / 2.0) * len(self._lines), 0]
+
+					size_hint_x: None
+					width: 65
+
+				#-----ROW 15-----
+				Label:
+					text: "Dual Wield Axe:"
+					font_name: "VERDANA"
+					font_size: 20
+
+					size_hint_x: None
+					width: 185
+					text_size: self.size
+					halign: "left"
+					valign: "top"
+				Label:
+					id: twinblade2
+					text: "0%"
+					font_name: "DUBAI-REGULAR"
+					font_size: 18
+
+					size_hint_x: None
+					width: 85
+				CheckBox:
+					id: twinblade_chk
+					on_active: root.checkbox_click(self, self.active, "twinblade", "twinblade2")
+
+					size_hint_x: None
+					width: 85
+				TextInput:
+					id: twinblade
+					disabled: twinblade_chk.active
+					multiline: False
+					write_tab: False
+					background_color: [1, 1, 1, .15]
+					foreground_color: [1, 1, 1, 1]
+					disabled_foreground_color: [1, 1, 1, 1]
+					hint_text_color: [1, 1, 1, 1]
+					cursor_color: [.1,1,.8,.4]
+					font_name: "DUBAI-REGULAR"
+
+					input_filter: 'float'
+					hint_text: '65'
+					halign: 'center'
+					padding_y: [self.height / 2.0 - (self.line_height / 2.0) * len(self._lines), 0]
+
+					size_hint_x: None
+					width: 65				
+
+				#-----ROW 16-----
+				Label:
+					text: "Sul-Xan's Torment:"
+					font_name: "VERDANA"
+					font_size: 18
+
+					size_hint_x: None
+					width: 185
+					text_size: self.size
+					halign: "left"
+					valign: "top"
+				Label:
+					id: sulxan2
+					text: "0%"
+					font_name: "DUBAI-REGULAR"
+					font_size: 18
+
+					size_hint_x: None
+					width: 85
+				CheckBox:
+					id: sulxan_chk
+					on_active: root.checkbox_click(self, self.active, "sulxan", "sulxan2")
+
+					size_hint_x: None
+					width: 85
+				TextInput:
+					id: sulxan
+					disabled: sulxan_chk.active
+					multiline: False
+					write_tab: False
+					background_color: [1, 1, 1, .15]
+					foreground_color: [1, 1, 1, 1]
+					disabled_foreground_color: [1, 1, 1, 1]
+					hint_text_color: [1, 1, 1, 1]
+					cursor_color: [.1,1,.8,.4]
+					font_name: "DUBAI-REGULAR"
+
+					input_filter: 'float'
+					hint_text: '100'
+					halign: 'center'
+					padding_y: [self.height / 2.0 - (self.line_height / 2.0) * len(self._lines), 0]
+
+					size_hint_x: None
+					width: 65
+
+
+			#Result Row
+			Label:
+				id: crit_result
+				text: ""
+				font_size: 24
+
+				size_hint_y: None
+				height: 75
+
+				canvas.before:
+					Color:
+						rgba: root.color
+					Rectangle:
+						size: self.size
+						pos: self.pos			
+
+	TabbedPanelItem: #Kilt Sheet	
+		text: "Kilt Cheatsheet"
+		font_name: 'Impact'
+		font_size: 19
+
+		GridLayout:
+			cols: 1
+			canvas.before:
+				Color:
+					rgba:[.21,.21,.21,1]
+				Rectangle:
+					size: self.size
+					pos: self.pos
+					source: 'Resources/gradient.jpg'
+
+			Image:
+				padding: [5, 5]
+				source: 'Resources/kilt.png'
+				canvas.before:
+					Color:
+						rgba:[.1,1,.8,.10]
+					Rectangle:
+						size: self.size
+						pos: self.pos
+					Line:
+						width: 1
+						rectangle: self.x, self.y, self.width, self.height
+
+			Label:
+				text: "Click the button below to open the full spreadsheet, with comments, in your browser!"
+				text_size: self.size
+				font_name: "VERDANA"
+				padding: [0, 5]	
+
+				valign: 'bottom'
+				halign: 'center'
+
+				size_hint_y: None
+				height: 50
+
+			Button:
+				padding: [20, 20]
+				text: "Open Full Spreadsheet"
+				font_name: "Impact"
+				font_size: 26
+				background_color: [.1,1,.8,1]
+
+				size_hint_y: None
+				size_hint_x: None
+
+				height: 75
+				width: 500
+
+				on_release: root.kilt_clicked()
+
+
+	TabbedPanelItem:
+		text: "How To Use"
+		font_name: 'Impact'
+		font_size: 19
+
+		GridLayout:
+			cols: 1
+			padding: [2, 2]
+			canvas.before:
+				Color:
+					rgba:[.21,.21,.21,1]
+				Rectangle:
+					size: self.size
+					pos: self.pos
+					source: 'Resources/gradient.jpg'
+
+			Image:
+				id: help_img
+				source: 'Resources/help.png'
+
