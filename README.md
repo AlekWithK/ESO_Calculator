@@ -16,8 +16,8 @@ If you click on any of these tabs and drag to the left you will find a fourth ta
 
 If you have any suggestions, comments, or bugs to report, feel free to contact me on Discord!
 
-###########################
+
 This software is in no way intended to be professional. It was simply a pet project of mine to play around with new Python APIs, but create something useful at the same time.
 
 The build files and resources for this project are all marked as 'Hidden' in the Windows Explorer to keep from overwhelming users. If you're a developer and would like to poke around, or view my beautifully medicore code, just enable viewing of hidden files.
-###########################
+
