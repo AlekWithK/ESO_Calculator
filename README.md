@@ -1,9 +1,8 @@
-###########################
+
 #  ESO Calculators v1.0   #
-###########################
 # Author: AlekWithK       #
 # Discord: alekwithk#5214 #
-###########################
+
 
 Description: This simple software features a few useful calculators pertaining to The Elder Scrolls Online game.
 
