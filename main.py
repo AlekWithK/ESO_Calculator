@@ -1,6 +1,8 @@
 from kivy.config import Config
 Config.set('graphics', 'resizable', False)
 
+import os, sys
+from kivy.resources import resource_add_path, resource_find
 from kivy.app import App
 from kivy.uix.widget import Widget
 from kivy.properties import ListProperty
@@ -8,13 +10,15 @@ from kivy.lang import Builder
 from kivy.uix.tabbedpanel import TabbedPanel
 from kivy.core.window import Window
 from kivy.uix.textinput import TextInput
+import webbrowser
 
 #Worker functions
-from funcs import normalizer, calc_avg_crit, calc_max_crit, kilt_update
+from src.funcs import normalizer, calc_avg_crit, calc_max_crit
 
+application_path = os.path.dirname(sys.executable)
 Window.size = (500, 650)
 Window.clearcolor = (.21,.21,.21,0) #Button header color
-Builder.load_file('ui.kv')
+Builder.load_file('src/ui.kv')
 class Frame(TabbedPanel):
     def __init__(self, **kwargs):
         super(Frame, self).__init__(**kwargs)
@@ -49,15 +53,19 @@ class Frame(TabbedPanel):
         
         #Update result    
         self.ids.crit_result.text = f"Average Crit Damage: {avg_crit}%\nMaximum Crit Damage: {max_crit}%"
-        
-    def spinner_clicked(self, instance, src):
-        kilt_update(self, src)        
-        return    
+    
+    def kilt_clicked(self):
+        webbrowser.open('https://docs.google.com/spreadsheets/d/1uaNcVwUY_hYnyf-rl72r8zqawUtiG_cfS2wbObrNrPk/edit#gid=0')
+        return     
+
 class ESOCalc(App):
     def build(self):
-        self.title = 'ESO Utility v1.0'
+        self.title = 'ESO Calculators v1.0'
         self.icon = 'Resources/icon.png'
         return Frame()       
 
 if __name__ == "__main__":
+    if hasattr(sys, '_MEIPASS'):
+        resource_add_path(os.path.join(sys._MEIPASS))
+    
     ESOCalc().run()

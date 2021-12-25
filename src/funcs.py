@@ -1,4 +1,4 @@
-from data import buffs, imgs
+from src.data import buffs
 
 #Primary function for Parse Normalizer
 def normalizer(t_dps, c_chance, t_hits, t_c_hits, t_non_hits, c_damage):
@@ -139,11 +139,3 @@ def calc_max_crit(self, src, val):
                 max_crit -= buffs[src][0]
     
     return max_crit
-
-def kilt_update(self, src):
-    #Uniform strings
-    src = ''.join(src.split()).lower()
-    self.ids.kilt_img.color = [1,1,1,1] 
-    self.ids.kilt_img.source = imgs[src][0]
-    
-    return

@@ -912,7 +912,6 @@
 
 		GridLayout:
 			cols: 1
-			padding: [2, 2]
 			canvas.before:
 				Color:
 					rgba:[.21,.21,.21,1]
@@ -921,25 +920,46 @@
 					pos: self.pos
 					source: 'Resources/gradient.jpg'
 
-			Spinner:
-				id: selection
-				background_color: [.1,1,.8,.75]
+			Image:
+				padding: [5, 5]
+				source: 'Resources/kilt.png'
+				canvas.before:
+					Color:
+						rgba:[.1,1,.8,.10]
+					Rectangle:
+						size: self.size
+						pos: self.pos
+					Line:
+						width: 1
+						rectangle: self.x, self.y, self.width, self.height
 
-				text: "Click To Select a Trial"
-				font_name: "Impact"
-				font_size: 26
+			Label:
+				text: "Click the button below to open the full spreadsheet, with comments, in your browser!"
+				text_size: self.size
+				font_name: "VERDANA"
+				padding: [0, 5]	
+
+				valign: 'bottom'
+				halign: 'center'
 
 				size_hint_y: None
-				height: 75
+				height: 50
 
-				values: ["Aetherian Archives", "Asylum Sanctorum", "Cloudrest", "Halls of Fabrication", "Hel Ra Citadel", "Kynes Aegis", "Maw of Lorkhaj", "Rockgrove", "Sanctum Ophidia", "Sunspire"]
-				on_text: root.spinner_clicked(self, selection.text)		
-								
-			Image:
-				id: kilt_img
-				color: [0, 0, 0, 0]
-				source: ""
-				size: self.texture_size
+			Button:
+				padding: [20, 20]
+				text: "Open Full Spreadsheet"
+				font_name: "Impact"
+				font_size: 26
+				background_color: [.1,1,.8,1]
+
+				size_hint_y: None
+				size_hint_x: None
+
+				height: 75
+				width: 500
+
+				on_release: root.kilt_clicked()
+
 
 	TabbedPanelItem:
 		text: "How To Use"

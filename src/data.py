@@ -18,17 +18,3 @@ buffs = {
     "brittle": (10, .60, "brittle"),
     "catalyst": (15, .83, "catalyst")    
 }
-
-#Image map
-imgs = {
-    "aetherianarchives": ("Resources/test.png", "aetherianarchives"),
-    "asylumsanctorum": ("Resources/test.png", "asylumsanctorum"),
-    "cloudrest": ("Resources/test.png", "cloudrest"),
-    "hallsoffabrication": ("Resources/test.png", "hallsoffabrication"),
-    "helracitadel": ("Resources/test.png", "helracitadel"),
-    "kynesaegis": ("Resources/test.png", "kynesaegis"),
-    "mawoflorkhaj": ("Resources/test.png", "mawoflorkhaj"),
-    "rockgrove": ("Resources/test.png", "rockgrove"),
-    "sanctumophidia": ("Resources/test.png", "sanctumophidia"),
-    "sunspire": ("Resources/test.png", "sunspire")     
-}
