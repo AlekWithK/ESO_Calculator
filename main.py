@@ -1,5 +1,8 @@
+version = 'v1.2'
+
 from kivy.config import Config
 Config.set('graphics', 'resizable', False)
+Config.set('input', 'mouse', 'mouse,multitouch_on_demand')
 
 import os, sys
 from kivy.resources import resource_add_path, resource_find
@@ -19,6 +22,20 @@ application_path = os.path.dirname(sys.executable)
 Window.size = (500, 650)
 Window.clearcolor = (.21,.21,.21,0) #Button header color
 Builder.load_file('src/ui.kv')
+
+def resource_path(relative_path):
+    try:
+        base_path = sys._MEIPASS
+    except Exception:
+        base_path = os.path.abspath(".")
+
+    return os.path.join(base_path, relative_path)
+
+def print_file(file_path):
+    file_path = resource_path(file_path)
+    with open(file_path) as fp:
+        for line in fp:
+            print(line)
 class Frame(TabbedPanel):
     def __init__(self, **kwargs):
         super(Frame, self).__init__(**kwargs)
@@ -60,12 +77,11 @@ class Frame(TabbedPanel):
 
 class ESOCalc(App):
     def build(self):
-        self.title = 'ESO Calculators v1.0'
+        self.title = f'ESO Calculators {version}'
         self.icon = 'Resources/icon.png'
         return Frame()       
 
 if __name__ == "__main__":
-    if hasattr(sys, '_MEIPASS'):
-        resource_add_path(os.path.join(sys._MEIPASS))
+    #print_file('data_files/data.txt')
     
     ESOCalc().run()
